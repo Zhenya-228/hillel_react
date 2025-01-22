@@ -148,14 +148,14 @@
               {CARS.map((car) => (
                 <React.Fragment key={car.id}>
                   <tr>
-                    <td colSpan="2" style={{ backgroundColor: "#0033a1", color: "white", fontWeight: "bold" }}>
+                    <td class="brand" colSpan="2">
                       {car.brand}
                     </td>
                   </tr>
                   {car.models.map((model) => (
                     <React.Fragment key={model.id}>
                       <tr>
-                        <td class="brand"rowSpan={model.collection.length + 1}>{model.name}</td>
+                        <td class="model"rowSpan={model.collection.length + 1}>{model.name}</td>
                       </tr>
                       {model.collection.map((spec) => (
                         <tr key={spec.id}>

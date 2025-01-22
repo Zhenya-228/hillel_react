@@ -10,9 +10,14 @@ td {
   text-align: left;
 }
 
-.brand {
+.model {
   background-color: #e0025c; /* Темно-червоний колір для першого стовпця */
   color: white;
+  font-weight: bold;
+}
+.brand {
+  background-color: #0033a1;
+  color: #ffffff;
   font-weight: bold;
 }
 
