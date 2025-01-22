@@ -1,0 +1,23 @@
+table {
+  border-collapse: collapse; /* Злиття меж таблиці */
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+td {
+  border: 1px solid black; /* Межі для всіх клітинок */
+  padding: 10px;
+  text-align: left;
+}
+
+.brand {
+  background-color: #e0025c; /* Темно-червоний колір для першого стовпця */
+  color: white;
+  font-weight: bold;
+}
+
+td ul {
+  list-style: none; /* Відсутність маркерів для списків */
+  margin: 0;
+  padding: 0;
+}

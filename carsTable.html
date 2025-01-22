@@ -3,123 +3,180 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cars Table</title>
+    <title>Lesson 00</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <table>
-      <tbody>
-        <tr class="row__brand">
-          <td colspan="2">Audi</td>
-        </tr>
-        <tr>
-          <td rowspan="2" class="cell__model">A1</td>
-          <td>
-            <ul>
-              <li>Version: Sportback</li>
-              <li>Year: 2019</li>
-              <li>Horsepower: 95</li>
-              <li>Engine: 999</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li>Version: Citycarver</li>
-              <li>Year: 2019</li>
-              <li>Horsepower: 95</li>
-              <li>Engine: 999</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="2" class="cell__model">Q5</td>
-          <td>
-            <ul>
-              <li>Version: FY 2021</li>
-              <li>Year: 2021</li>
-              <li>Horsepower: 299</li>
-              <li>Engine: 1984</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li>Version: Sportback</li>
-              <li>Year: 2021</li>
-              <li>Horsepower: 299</li>
-              <li>Engine: 1984</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="2" class="cell__model">TT</td>
-          <td>
-            <ul>
-              <li>Version: Coupe</li>
-              <li>Year: 2021</li>
-              <li>Horsepower: 197</li>
-              <li>Engine: 1984</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li>Version: Roadster</li>
-              <li>Year: 2021</li>
-              <li>Horsepower: 197</li>
-              <li>Engine: 1984</li>
-            </ul>
-          </td>
-        </tr>
-        <tr class="row__brand">
-          <td colspan="2">BMW</td>
-        </tr>
-        <tr>
-          <td rowspan="2" class="cell__model">8 series</td>
-          <td>
-            <ul>
-              <li>Version: G1X LCI</li>
-              <li>Year: 2022</li>
-              <li>Horsepower: 333</li>
-              <li>Engine: 2998</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li>Version: G1X</li>
-              <li>Year: 2019</li>
-              <li>Horsepower: 340</li>
-              <li>Engine: 2998</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="2" class="cell__model">X6</td>
-          <td>
-            <ul>
-              <li>Version: G06 LCI</li>
-              <li>Year: 2023</li>
-              <li>Horsepower: 530</li>
-              <li>Engine: 4395</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li>Version: G06</li>
-              <li>Year: 2020</li>
-              <li>Horsepower: 286</li>
-              <li>Engine: 2993</li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="root"></div>
+    <script type="text/babel">
+      const domContainer = document.querySelector("#root");
+      const root = ReactDOM.createRoot(domContainer);
+
+      const CARS = [
+    {
+        id: 1,
+        brand: "Audi",
+        models: [
+            {
+                id: 1,
+                name: "A1",
+                collection: [
+                    {
+                        id: 1,
+                        version: "Sportback",
+                        year: 2019,
+                        horsepower: 95,
+                        engine: 999
+                    },
+                    {
+                        id: 2,
+                        version: "Citycarver",
+                        year: 2019,
+                        horsepower: 95,
+                        engine: 999
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "Q5",
+                collection: [
+                    {
+                        id: 1,
+                        version: "FY 2021",
+                        year: 2021,
+                        horsepower: 299,
+                        engine: 1984
+                    },
+                    {
+                        id: 2,
+                        version: "Sportback",
+                        year: 2021,
+                        horsepower: 299,
+                        engine: 1984
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: "TT",
+                collection: [
+                    {
+                        id: 1,
+                        version: "Coupe",
+                        year: 2021,
+                        horsepower: 197,
+                        engine: 1984
+                    },
+                    {
+                        id: 2,
+                        version: "Roadster",
+                        year: 2021,
+                        horsepower: 197,
+                        engine: 1984
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        brand: "BMW",
+        models: [
+            {
+                id: 1,
+                name: "8 series",
+                collection: [
+                    {
+                        id: 1,
+                        version: "G1X LCI",
+                        year: 2022,
+                        horsepower: 333,
+                        engine: 2998
+                    },
+                    {
+                        id: 2,
+                        version: "G1X",
+                        year: 2019,
+                        horsepower: 340,
+                        engine: 2998
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "X6",
+                collection: [
+                    {
+                        id: 1,
+                        version: "G06 LCI",
+                        year: 2023,
+                        horsepower: 530,
+                        engine: 4395
+                    },
+                    {
+                        id: 2,
+                        version: "G06",
+                        year: 2020,
+                        horsepower: 286,
+                        engine: 2993
+                    }
+                ]
+            }
+        ]
+    },
+];
+
+      root.render(
+        <React.Fragment>
+          <table>
+            <thead>
+              <tr>
+                <th class="heading"colSpan="2">Car Specs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CARS.map((car) => (
+                <React.Fragment key={car.id}>
+                  <tr>
+                    <td colSpan="2" style={{ backgroundColor: "#0033a1", color: "white", fontWeight: "bold" }}>
+                      {car.brand}
+                    </td>
+                  </tr>
+                  {car.models.map((model) => (
+                    <React.Fragment key={model.id}>
+                      <tr>
+                        <td class="brand"rowSpan={model.collection.length + 1}>{model.name}</td>
+                      </tr>
+                      {model.collection.map((spec) => (
+                        <tr key={spec.id}>
+                          <td>
+                            <ul>
+                              <li>Version: {spec.version}</li>
+                              <li>Year: {spec.year}</li>
+                              <li>Horsepower: {spec.horsepower}</li>
+                              <li>Engine: {spec.engine}</li>
+                            </ul>
+                          </td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </React.Fragment>
+              ))}
+            </tbody>
+          </table>
+        </React.Fragment>
+        );
+    </script>
   </body>
 </html>
