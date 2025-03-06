@@ -1,0 +1,24 @@
+.board {
+    display: flex;
+    justify-content: space-between;
+    border: 2px dotted black;
+    padding: 10px;
+}
+.column {
+    width: 30%;
+    border: 1px solid #000;
+    padding: 10px;
+}
+.task {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 5px;
+}
+.task button {
+    margin-left: 10px;
+    background-color: lightgray;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
