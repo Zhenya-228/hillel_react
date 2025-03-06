@@ -17,20 +17,33 @@ export default function Tasks_board() {
     getTask();
   }, []);
     
-  // const handleItemDelete = async (e, id) => {
-  //   e.stopPropagation();
-  //   try {
-  //     await service.delete(id);
-  //     setTask((prevState) => prevState.filter((item) => item.id !== id));
-  //     // getTodos();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const handleItemDelete = async (e, id) => {
+    try {
+      await service.delete(id);
+      setTask((prevState) => prevState.filter((item) => item.id !== id));
+      // getTodos();
+    } catch (err) {
+      console.log(err);
+    }
+  };
     
   const handleItemStatus = async (item) => {
     try {
-      const response = await service.patch(item.id, {status: item.status + 1});
+      const response = await service.put(item.id, {status: item.status + 1});
+      setTask((prevState) =>
+        prevState.map((element) => {
+          if (element.id === response.id) element = response;
+          return element;
+        })
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleItemStatusBack = async (item) => {
+    try {
+      const response = await service.put(item.id, {status: item.status - 1});
       setTask((prevState) =>
         prevState.map((element) => {
           if (element.id === response.id) element = response;
@@ -74,6 +87,7 @@ export default function Tasks_board() {
         <ul>
           {progress_tasks.map((item) => (
             <li key={item.id}>{item.title}{" "}
+              <button onClick={() => handleItemStatusBack(item)}>To do </button>
               <button onClick={() => handleItemStatus(item)}>Finish</button>
             </li>
       
@@ -87,7 +101,7 @@ export default function Tasks_board() {
         <ul>
           {finished_tasks.map((item) => (
             <li key={item.id}>{item.title}{" "}
-              <button onClick={() => handleItemStatus(item)}>To archive</button>
+              <button onClick={() => handleItemDelete(item, item.id)}>To archive</button>
             </li>
       
           ))}
