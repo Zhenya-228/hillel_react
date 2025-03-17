@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "./Board.css"
 import service from "./../../services/todosAxios";
-
+import TodosForm from "./TodosForm/TodosForm";
+import {TODO, IN_PROGRESS, DONE } from "../../constants/todos";
 export default function Tasks_board() {
   const [tasks, setTask] = useState([]);
   const getTask = async () => {
@@ -55,20 +56,30 @@ export default function Tasks_board() {
     }
   };
 
+  const addNewTodo = async (item) => {
+    try {
+      await service.post(item);
+      getTask();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   let pending_tasks = [];
   let progress_tasks = [];
   let finished_tasks = [];
 
   tasks.map((item) => {
     switch(item.status) {
-      case 0: pending_tasks.push(item); break;
-      case 1: progress_tasks.push(item); break;
-      case 2: finished_tasks.push(item); break;
+      case TODO: pending_tasks.push(item); break;
+      case IN_PROGRESS: progress_tasks.push(item); break;
+      case DONE: finished_tasks.push(item); break;
     }
   });
 
   return (
-    
+    <>
+    <TodosForm liftingNewTodo={addNewTodo} />
     <div class="board">
       <div class="column">
         <h3>To Do: {pending_tasks.length}</h3>
@@ -77,7 +88,6 @@ export default function Tasks_board() {
             <li key={item.id}>{item.title}{" "}
               <button onClick={() => handleItemStatus(item)}>In progress</button>
             </li>
-      
           ))}
         </ul>
     </div>
@@ -109,6 +119,6 @@ export default function Tasks_board() {
         
     </div>
 </div>
-
+</>
     );
 }

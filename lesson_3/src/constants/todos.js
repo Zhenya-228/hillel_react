@@ -1,0 +1,20 @@
+const NEW_TODO_DEFAULT = {
+    title: `Hello, world`,
+    status: 0,
+  };
+  const TODO = 0
+  const IN_PROGRESS = 1
+  const DONE = 2
+  const TODOS_FILTER_ALL = `TODOS_FILTER_ALL`;
+  const TODOS_FILTER_COMPLETED = `TODOS_FILTER_COMPLETED`;
+  const TODOS_FILTER_PROGRESS = `TODOS_FILTER_PROGRESS`;
+  
+  export {
+    NEW_TODO_DEFAULT,
+    TODOS_FILTER_ALL,
+    TODOS_FILTER_COMPLETED,
+    TODOS_FILTER_PROGRESS,
+    TODO,
+    IN_PROGRESS,
+    DONE
+  };
